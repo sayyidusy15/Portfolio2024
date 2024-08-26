@@ -111,7 +111,7 @@ export default function Resume() {
           <li className="skills-item">
             <div className="title-wrapper">
               <h5 className="h5">Graphic design</h5>
-              <data value="70">70%</data>
+              <data value="70">98%</data>
             </div>
 
             <div className="skill-progress-bg">
