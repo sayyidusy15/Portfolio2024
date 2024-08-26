@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import supabase from "@/utils/supabaseClient";
 // font awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEye,faChevronDown} from "@fortawesome/free-solid-svg-icons";
 
 export default function Portfolio() {
   const [data, setData] = useState<any[]>([]);
@@ -46,6 +46,36 @@ export default function Portfolio() {
             <button className={selectedCategory === "Web development" ? "active" : ""} onClick={() => handleCategoryChange("Web development")}>Web development</button>
           </li>
         </ul>
+
+        {/* dropdown */}
+
+        <div className="filter-select-box">
+            <button className="filter-select" data-select>
+              <div className="select-value" data-selecct-value>Select category</div>
+              <div className="select-icon">
+                <FontAwesomeIcon icon={faChevronDown}/>
+              </div>
+            </button>
+            <ul className="select-list">
+
+              <li className="select-item">
+                <button data-select-item className={selectedCategory === "All" ? "active" : ""} onClick={() => handleCategoryChange("All")}>All</button>
+              </li>
+
+              <li className="select-item">
+                <button data-select-item className={selectedCategory === "Design Branding" ? "active" : ""} onClick={() => handleCategoryChange("Design Branding")}>Design Branding</button>
+              </li>
+
+              <li className="select-item">
+                <button data-select-item className={selectedCategory === "UX Design" ? "active" : ""} onClick={() => handleCategoryChange("UX Design")}>UX Design</button>
+              </li>
+
+              <li className="select-item">
+                <button data-select-item className={selectedCategory === "Web development" ? "active" : ""} onClick={() => handleCategoryChange("Web development")}>Web development</button>
+              </li>
+            </ul>
+
+          </div>
 
         <ul className="project-list">
           {filteredData.map((portfolio_data, index) => (
