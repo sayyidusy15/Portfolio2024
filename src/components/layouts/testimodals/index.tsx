@@ -9,7 +9,7 @@ export default function Testimodals() {
   const [data, setData] = useState<any[]>([]);
   useEffect(() => {
     const getData = async () => {
-      const { data, error } = await supabase.from("testimoni").select();
+      const { data, error } = await supabase.from("testimoni").select().order('id', { ascending: true });
       if (data) {
         setData(data);
       } else {
@@ -48,8 +48,8 @@ export default function Testimodals() {
             <div className="modal-img-wrapper">
               <figure className="modal-avatar-box">
                 <img
-                  src="/images/avatar-1.png"
-                  alt={testimonials_data?.testi_name || "Name"}
+                  src={testimonials_data?.img || "Image"}
+                  alt={testimonials_data?.img || "Image"}
                   width="80"
                   data-modal-img
                 />
@@ -63,6 +63,12 @@ export default function Testimodals() {
                 {" "}
                 {testimonials_data?.testi_name || "Name"}
               </h4>
+
+              <div data-modal-text>
+                <p>
+                  {testimonials_data?.position || "Position As"}
+                </p>
+              </div>
 
               <time dateTime="2021-06-14">
                 {testimonials_data?.date || "DD/MM/YY"}

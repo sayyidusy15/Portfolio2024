@@ -35,8 +35,8 @@ export default function Testimonials() {
             <div className="content-card" data-testimonials-item>
               <figure className="testimonials-avatar-box">
                 <img
-                  src="/images/avatar-1.png"
-                  alt={testimonials_data?.testi_name || "Name"}
+                  src={testimonials_data?.img || "Image"}
+                  alt={testimonials_data?.img || "Image"}
                   width="60"
                   data-testimonials-avatar
                 />
